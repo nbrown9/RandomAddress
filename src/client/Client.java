@@ -16,7 +16,6 @@ public class Client {
     public String ClientIP() throws UnknownHostException {
 
         InetAddress deviceip = InetAddress.getLocalHost();
-
         return String.valueOf(deviceip);
     }
 
@@ -103,6 +102,17 @@ public class Client {
 	
     	
     	return output.toString();
+    	
+    }
+    
+    public String ShellCommand (String os, String randmac){
+		if (os.equals("Mac OS X")){
+			os = "sudo ifconfig en0 ether " + randmac;
+		} else {
+			os = "";
+		}
+    	
+    	return os;
     	
     }
 
